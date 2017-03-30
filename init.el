@@ -32,4 +32,5 @@
 (setq slime-contribs
       '(slime-fancy
 	slime-indentation
+	slime-sbcl-exts
 	slime-repl-ansi-color)) ; remember at least to create a symbolic link to slime/contrib 
