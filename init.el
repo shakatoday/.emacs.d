@@ -6,6 +6,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(font-lock-global-modes (quote (not speedbar-mode)))
  '(package-selected-packages
    (quote
     (slime magit monokai-theme auto-complete exec-path-from-shell zenburn-theme))))
@@ -19,9 +20,11 @@
 (exec-path-from-shell-initialize)
 
 (ac-config-default)
+(global-auto-complete-mode t)
+(setq ac-modes (remove 'slime-repl-mode ac-modes))
 (setq ac-auto-start 4)
 (setq-default ac-sources '(ac-source-features ac-source-functions ac-source-yasnippet ac-source-variables ac-source-symbols ac-source-abbrev ac-source-dictionary ac-source-words-in-all-buffer ac-source-slime))
-(add-hook 'shell-mode-hook 'auto-complete-mode)
+; (add-hook 'shell-mode-hook 'auto-complete-mode)
 
 ; (add-hook 'after-init-hook 'global-company-mode)
 
