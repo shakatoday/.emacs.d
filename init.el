@@ -9,7 +9,7 @@
  '(font-lock-global-modes (quote (not speedbar-mode)))
  '(package-selected-packages
    (quote
-    (slime magit monokai-theme auto-complete exec-path-from-shell zenburn-theme))))
+    (js2-mode slime magit monokai-theme auto-complete exec-path-from-shell zenburn-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -24,9 +24,10 @@
 (setq ac-modes (remove 'slime-repl-mode ac-modes))
 (setq ac-auto-start 4)
 (setq-default ac-sources '(ac-source-features ac-source-functions ac-source-yasnippet ac-source-variables ac-source-symbols ac-source-abbrev ac-source-dictionary ac-source-words-in-all-buffer ac-source-slime))
-; (add-hook 'shell-mode-hook 'auto-complete-mode)
+;; (add-hook 'shell-mode-hook 'auto-complete-mode)
 
-; (add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'after-init-hook 'global-company-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 (setq slime-contribs
