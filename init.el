@@ -7,6 +7,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-lock-global-modes (quote (not speedbar-mode)))
+ '(js-indent-level 2)
  '(package-selected-packages
    (quote
     (js2-mode slime magit monokai-theme auto-complete exec-path-from-shell zenburn-theme))))
@@ -28,6 +29,9 @@
 
 ;; (add-hook 'after-init-hook 'global-company-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js2-mode
+	  (lambda ()
+	    (setq tab-width 2)))
 
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 (setq slime-contribs
