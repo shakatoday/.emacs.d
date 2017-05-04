@@ -11,14 +11,14 @@
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (silkworm-theme popup slime magit company js2-mode monokai-theme zenburn-theme))))
+    (blackboard-theme cherry-blossom-theme silkworm-theme popup slime magit company js2-mode monokai-theme zenburn-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(load-theme 'silkworm t)
+(load-theme 'blackboard t)
 (exec-path-from-shell-initialize)
 
 ;; (ac-config-default)
@@ -44,4 +44,4 @@
 	slime-sbcl-exts
 	slime-repl-ansi-color)) ; remember at least to create a symbolic link to slime/contrib 
 
-(set-face-attribute 'default nil :height 160 :font "Klee")
+(set-face-attribute 'default nil :height 140 :font "monofur")
