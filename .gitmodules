@@ -1,3 +1,6 @@
 [submodule "slime-repl-ansi-color"]
 	path = slime-repl-ansi-color
 	url = https://github.com/enriquefernandez/slime-repl-ansi-color.git
+[submodule "scriba"]
+	path = scriba
+	url = https://github.com/CommonDoc/scriba.git

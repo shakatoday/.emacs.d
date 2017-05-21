@@ -45,3 +45,5 @@
 	slime-repl-ansi-color)) ; remember at least to create a symbolic link to slime/contrib 
 
 (set-face-attribute 'default nil :height 140 :font "monofur")
+
+(load (expand-file-name "~/.emacs.d/scriba/scriba.el"))
