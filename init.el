@@ -34,15 +34,17 @@
 (setq company-idle-delay 0.1)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+;; by defvar, this setting won't be overwritten in ~/.roswell/helper.el
+(defvar roswell-slime-contribs '(slime-fancy
+				 slime-indentation
+				 slime-sbcl-exts
+				 slime-repl-ansi-color)) ; remember at least to create a symbolic link to slime/contrib 
+
 (load (expand-file-name "~/.roswell/helper.el"))
 ;; (setq inferior-lisp-program "ros -Q run")
-(setq inferior-lisp-program "ros -L sbcl -Q -l ~/.sbclrc run")
+(setq inferior-lisp-program "ros -Q run")
 ;;(setq inferior-lisp-program "/usr/local/bin/sbcl")
-(setq slime-contribs
-      '(slime-fancy
-	slime-indentation
-	slime-sbcl-exts
-	slime-repl-ansi-color)) ; remember at least to create a symbolic link to slime/contrib 
+(setq slime-contribs roswell-slime-contribs)
 
 (set-face-attribute 'default nil :height 140 :font "monofur")
 
