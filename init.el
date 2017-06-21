@@ -19,7 +19,11 @@
  ;; If there is more than one, they won't work right.
  )
 (load-theme 'blackboard t)
-(exec-path-from-shell-initialize)
+;; (exec-path-from-shell-initialize) ; looks like eshell doesn't need this
+
+(setq tramp-default-method "ssh")
+
+(setq tramp-auto-save-directory "/tmp")
 
 ;; (ac-config-default)
 ;; (global-auto-complete-mode t)
@@ -38,13 +42,20 @@
 (defvar roswell-slime-contribs '(slime-fancy
 				 slime-indentation
 				 slime-sbcl-exts
-				 slime-repl-ansi-color)) ; remember at least to create a symbolic link to slime/contrib 
+				 slime-repl-ansi-color ; remember at least to create a symbolic link to slime/contrib 
+				 slime-tramp))
 
 (load (expand-file-name "~/.roswell/helper.el"))
 ;; (setq inferior-lisp-program "ros -Q run")
 (setq inferior-lisp-program "ros -Q run")
 ;;(setq inferior-lisp-program "/usr/local/bin/sbcl")
 (setq slime-contribs roswell-slime-contribs)
+
+(add-to-list 'slime-filename-translations
+             (slime-create-filename-translator
+              :machine-instance "bodley"
+              :remote-host "bodley.libgirl.com"
+              :username "danielviolin"))
 
 (set-face-attribute 'default nil :height 140 :font "monofur")
 
