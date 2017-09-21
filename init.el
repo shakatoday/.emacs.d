@@ -1,5 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/")) ; use when needed
 (package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
