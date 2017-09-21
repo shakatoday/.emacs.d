@@ -1,6 +1,5 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -11,7 +10,7 @@
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (blackboard-theme cherry-blossom-theme silkworm-theme popup slime magit company js2-mode monokai-theme zenburn-theme))))
+    (helm-descbinds blackboard-theme cherry-blossom-theme silkworm-theme popup slime magit company js2-mode monokai-theme zenburn-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -22,8 +21,6 @@
 ;; (exec-path-from-shell-initialize) ; looks like eshell doesn't need this
 
 (setq tramp-default-method "ssh")
-
-(setq tramp-auto-save-directory "/tmp")
 
 ;; (ac-config-default)
 ;; (global-auto-complete-mode t)
@@ -38,6 +35,9 @@
 (setq company-idle-delay 0.1)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+(add-to-list 'auto-mode-alist '("\\.clp\\'" . html-mode))
+
+
 ;; by defvar, this setting won't be overwritten in ~/.roswell/helper.el
 (defvar roswell-slime-contribs '(slime-fancy
 				 slime-indentation
@@ -46,7 +46,6 @@
 				 slime-tramp))
 
 (load (expand-file-name "~/.roswell/helper.el"))
-;; (setq inferior-lisp-program "ros -Q run")
 (setq inferior-lisp-program "ros -Q run")
 ;;(setq inferior-lisp-program "/usr/local/bin/sbcl")
 (setq slime-contribs roswell-slime-contribs)
@@ -58,5 +57,7 @@
               :username "danielviolin"))
 
 (set-face-attribute 'default nil :height 140 :font "monofur")
+
+(slime)
 
 (load (expand-file-name "~/.emacs.d/scriba/scriba.el"))
