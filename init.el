@@ -8,7 +8,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-lock-global-modes (quote (not speedbar-mode)))
- '(js-indent-level 2)
+ '(js-indent-level 4)
  '(package-selected-packages
    (quote
     (helm-descbinds blackboard-theme cherry-blossom-theme silkworm-theme popup slime magit company js2-mode monokai-theme zenburn-theme))))
@@ -34,6 +34,7 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 (setq company-idle-delay 0.1)
+(setq company-dabbrev-downcase nil)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (add-to-list 'auto-mode-alist '("\\.clp\\'" . html-mode))
@@ -62,3 +63,4 @@
 (slime)
 
 (load (expand-file-name "~/.emacs.d/scriba/scriba.el"))
+(put 'downcase-region 'disabled nil)
