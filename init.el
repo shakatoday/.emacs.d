@@ -8,7 +8,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-lock-global-modes (quote (not speedbar-mode)))
- '(js-indent-level 4)
+ '(indent-tabs-mode nil)
+ '(js-indent-level 2)
+ '(js-switch-indent-offset 2)
  '(package-selected-packages
    (quote
     (ac-slime auto-complete helm-descbinds blackboard-theme popup magit js2-mode))))
