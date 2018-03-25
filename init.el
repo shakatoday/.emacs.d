@@ -13,7 +13,9 @@
  '(js-switch-indent-offset 2)
  '(package-selected-packages
    (quote
-    (ac-slime auto-complete helm-descbinds blackboard-theme popup magit js2-mode))))
+    (flymd markdown-mode ac-slime auto-complete helm-descbinds blackboard-theme popup magit js2-mode))))
+
+(require 'flymd)
 
 (mapcar (lambda (init-filename)
 	  (load (expand-file-name (format "~/.emacs.d/rc/%s.el"
