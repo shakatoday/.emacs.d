@@ -1,6 +1,11 @@
 ;; setup ac-slime
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+(mapcar (lambda (mode-name)
+          (add-hook mode-name
+                    (lambda ()
+                      (set-up-slime-ac)
+                      (make-local-variable 'ac-ignore-case)
+                      (setq ac-ignore-case nil))))
+        '(slime-mode-hook slime-repl-mode-hook))
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
