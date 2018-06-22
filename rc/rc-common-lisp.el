@@ -9,7 +9,7 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
-;;setup roswell
+;; setup roswell
 ;; by defvar, this setting won't be overwritten in ~/.roswell/helper.el
 (defvar roswell-slime-contribs '(slime-fancy
                                  slime-indentation
