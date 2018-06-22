@@ -18,4 +18,6 @@
 (setq slime-contribs roswell-slime-contribs)
 (load (expand-file-name "~/.roswell/helper.el"))
 
-
+;; use local clhs
+;; use quicklisp to install system clhs and do necessary setup for the first time usage
+(load (expand-file-name "~/.roswell/lisp/quicklisp/clhs-use-local.el") t)
