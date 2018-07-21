@@ -13,13 +13,12 @@
  '(js-switch-indent-offset 2)
  '(package-selected-packages
    (quote
-    (markdown-mode ac-slime auto-complete blackboard-theme popup magit js2-mode))))
+    (markdown-mode ac-slime auto-complete popup magit js2-mode))))
 
 (mapcar (lambda (init-filename)
 	  (load (expand-file-name (format "~/.emacs.d/rc/%s.el"
 					  init-filename))))
-	'("rc-theme"
-	  "rc-tramp"
+	'("rc-tramp"
 	  "rc-auto-complete"
 	  "rc-js"
           "rc-common-lisp"
