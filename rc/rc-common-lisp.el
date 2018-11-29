@@ -12,8 +12,7 @@
 ;; setup roswell
 ;; by defvar, this setting won't be overwritten in ~/.roswell/helper.el
 (defvar roswell-slime-contribs '(slime-fancy
-                                 slime-indentation
-				 slime-repl-ansi-color)) ; remember at least to create a symbolic link to slime/contrib 
+                                 slime-indentation))
 
 (setq slime-contribs roswell-slime-contribs)
 (load (expand-file-name "~/.roswell/helper.el"))
