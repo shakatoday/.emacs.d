@@ -13,7 +13,8 @@
  '(js-switch-indent-offset 2)
  '(package-selected-packages
    (quote
-    (markdown-mode ac-slime auto-complete blackboard-theme popup magit js2-mode))))
+    (company racer cargo rust-mode exec-path-from-shell markdown-mode ac-slime auto-complete blackboard-theme popup magit js2-mode)))
+ '(rust-format-on-save t))
 
 (mapcar (lambda (init-filename)
 	  (load (expand-file-name (format "~/.emacs.d/rc/%s.el"
@@ -23,6 +24,7 @@
 	  "rc-auto-complete"
 	  "rc-js"
           "rc-common-lisp"
+          "rc-rust"
 	  "rc-general-customization"))
 
 (load (expand-file-name "~/.emacs.d/scriba/scriba.el"))
