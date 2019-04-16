@@ -13,7 +13,7 @@
  '(js-switch-indent-offset 2)
  '(package-selected-packages
    (quote
-    (ein ac-racer racer cargo rust-mode exec-path-from-shell markdown-mode ac-slime auto-complete blackboard-theme popup magit js2-mode)))
+    (feature-mode ein ac-racer racer cargo rust-mode exec-path-from-shell markdown-mode ac-slime auto-complete blackboard-theme popup magit js2-mode)))
  '(rust-format-on-save t))
 
 (mapcar (lambda (init-filename)
