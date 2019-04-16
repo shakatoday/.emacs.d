@@ -13,7 +13,7 @@
  '(js-switch-indent-offset 2)
  '(package-selected-packages
    (quote
-    (ac-racer racer cargo rust-mode exec-path-from-shell markdown-mode ac-slime auto-complete blackboard-theme popup magit js2-mode)))
+    (ein ac-racer racer cargo rust-mode exec-path-from-shell markdown-mode ac-slime auto-complete blackboard-theme popup magit js2-mode)))
  '(rust-format-on-save t))
 
 (mapcar (lambda (init-filename)
@@ -25,6 +25,7 @@
 	  "rc-js"
           "rc-common-lisp"
           "rc-rust"
+          "rc-ein"
 	  "rc-general-customization"))
 
 (load (expand-file-name "~/.emacs.d/scriba/scriba.el"))
@@ -36,3 +37,4 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'upcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
