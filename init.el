@@ -13,7 +13,7 @@
  '(js-switch-indent-offset 2)
  '(package-selected-packages
    (quote
-    (feature-mode ein ac-racer racer cargo rust-mode exec-path-from-shell markdown-mode ac-slime auto-complete blackboard-theme popup magit js2-mode)))
+    (yaml-mode elpy feature-mode ein ac-racer racer cargo rust-mode exec-path-from-shell markdown-mode ac-slime auto-complete blackboard-theme popup magit js2-mode)))
  '(rust-format-on-save t))
 
 (mapcar (lambda (init-filename)
@@ -25,6 +25,7 @@
 	  "rc-js"
           "rc-common-lisp"
           "rc-rust"
+          "rc-python"
           "rc-ein"
 	  "rc-general-customization"))
 
