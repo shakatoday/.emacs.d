@@ -3,7 +3,12 @@
 (setq ac-modes (remove 'slime-repl-mode ac-modes))
 (setq ac-modes (remove 'js2-mode ac-modes))
 (setq ac-modes (remove 'python-mode ac-modes))
+(setq ac-modes (remove 'typescript-mode ac-modes))
 (setq ac-auto-start 4)
 (setq-default ac-sources '(ac-source-features ac-source-functions ac-source-yasnippet ac-source-variables ac-source-symbols ac-source-abbrev ac-source-dictionary ac-source-words-in-all-buffer ac-source-slime))
 (add-hook 'shell-mode-hook 'auto-complete-mode)
-
+(setq web-mode-ac-sources-alist
+  '(("css" . (ac-source-css-property))
+    ("html" . (ac-source-words-in-buffer ac-source-abbrev))
+    ("javascript" . (ac-source-words-in-buffer ac-source-abbrev))
+    ("typescript" . (ac-source-words-in-buffer ac-source-abbrev))))

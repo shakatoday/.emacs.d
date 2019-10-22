@@ -13,7 +13,7 @@
  '(js-switch-indent-offset 2)
  '(package-selected-packages
    (quote
-    (web-mode yaml-mode elpy feature-mode ein ac-racer racer cargo rust-mode exec-path-from-shell markdown-mode ac-slime auto-complete blackboard-theme popup magit js2-mode)))
+    (tide ac-racer ac-slime auto-complete web-mode yaml-mode elpy feature-mode racer cargo rust-mode exec-path-from-shell markdown-mode blackboard-theme magit js2-mode)))
  '(rust-format-on-save t)
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
@@ -25,12 +25,12 @@
 	'("rc-theme"
 	  "rc-tramp"
 	  "rc-auto-complete"
-	  "rc-js"
+          "rc-js"
+          "rc-ts"
           "rc-web"
           "rc-common-lisp"
           "rc-rust"
           "rc-python"
-          "rc-ein"
 	  "rc-general-customization"))
 
 (load (expand-file-name "~/.emacs.d/scriba/scriba.el"))
