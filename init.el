@@ -15,6 +15,9 @@
    (quote
     (tide ac-racer ac-slime auto-complete web-mode yaml-mode elpy feature-mode racer cargo rust-mode exec-path-from-shell markdown-mode blackboard-theme magit js2-mode)))
  '(rust-format-on-save t)
+ '(tide-format-options
+   (quote
+    (:insertSpaceAfterFunctionKeywordForAnonymousFunctions t)))
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
  '(web-mode-markup-indent-offset 2))
