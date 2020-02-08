@@ -31,6 +31,7 @@
           "rc-js"
           "rc-ts"
           "rc-web"
+          "rc-tsx"
           "rc-common-lisp"
           "rc-rust"
           "rc-python"
