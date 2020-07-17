@@ -1,6 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/")) ; use when needed
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/")) ; use when needed
 (package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -13,7 +13,7 @@
  '(js-switch-indent-offset 2)
  '(package-selected-packages
    (quote
-    (graphql-mode tide ac-racer ac-slime auto-complete web-mode yaml-mode elpy feature-mode racer cargo rust-mode exec-path-from-shell markdown-mode blackboard-theme magit js2-mode)))
+    (sql-indent sqlup-mode sqlformat graphql-mode tide ac-racer ac-slime auto-complete web-mode yaml-mode elpy feature-mode racer cargo rust-mode exec-path-from-shell markdown-mode blackboard-theme magit js2-mode)))
  '(rust-format-on-save t)
  '(tide-format-options
    (quote
@@ -28,6 +28,7 @@
 	'("rc-theme"
 	  "rc-tramp"
 	  "rc-auto-complete"
+          "rc-sql"
           "rc-js"
           "rc-ts"
           "rc-web"
