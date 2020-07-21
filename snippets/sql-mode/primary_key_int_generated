@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: primary key generated always ...
+# key: primary
+# --
+id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
