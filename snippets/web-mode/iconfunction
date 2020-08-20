@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Icon function
+# key: Icon
+# --
+const ${1:variable} = (props?: Partial<ImageProps>): React.ReactElement<ImageProps> => (
+  <Icon name='${2:name}' {...props} />
+);
