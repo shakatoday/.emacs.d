@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: const function
+# key: const
+# --
+const ${1:variableName} = (${2:arguments}) => {
+  ${3:...}
+};
