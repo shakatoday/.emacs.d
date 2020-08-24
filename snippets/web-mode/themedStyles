@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: themedStyles
+# key: themedStyles
+# --
+const themedStyles = StyleService.create({ ${1:...import { StyleService, useStyleSheet } from '@ui-kitten/components';}
+});

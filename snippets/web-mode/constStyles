@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: const styles
+# key: const
+# --
+const styles = StyleSheet.create({ ${1:...import { StyleSheet } from 'react-native';}
+});

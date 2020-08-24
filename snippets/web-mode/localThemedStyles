@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: localThemedStyles
+# key: themedStyles
+# --
+const localThemedStyles = useStyleSheet(themedStyles);
