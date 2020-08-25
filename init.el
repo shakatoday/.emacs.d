@@ -7,17 +7,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(font-lock-global-modes (quote (not speedbar-mode)))
+ '(font-lock-global-modes '(not speedbar-mode))
  '(indent-tabs-mode nil)
  '(js-indent-level 2)
  '(js-switch-indent-offset 2)
  '(package-selected-packages
-   (quote
-    (sql-indent sqlup-mode sqlformat graphql-mode tide ac-racer ac-slime auto-complete web-mode yaml-mode elpy feature-mode racer cargo rust-mode exec-path-from-shell markdown-mode blackboard-theme magit js2-mode)))
+   '(sql-indent sqlup-mode sqlformat graphql-mode tide ac-racer ac-slime auto-complete web-mode yaml-mode elpy feature-mode racer cargo rust-mode exec-path-from-shell markdown-mode blackboard-theme magit js2-mode))
  '(rust-format-on-save t)
- '(tide-format-options
-   (quote
-    (:insertSpaceAfterFunctionKeywordForAnonymousFunctions t)))
+ '(tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t))
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
  '(web-mode-markup-indent-offset 2))
