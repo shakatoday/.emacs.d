@@ -2,5 +2,5 @@
 # name: React.useState
 # key: const
 # --
-const [${1:stateName}, set${1:$(capitalize (or (yas-text) ""))}] = React.useState(${2:initialState});
+const [${1:stateName}, set${1:$(let ((state-name (or (yas-text) "StateName"))) (concat (capitalize (substring state-name 0 1)) (substring state-name 1)))}] = React.useState${2:<StateType>}(${3:initialState});
 
