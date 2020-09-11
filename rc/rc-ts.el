@@ -17,6 +17,14 @@
   ;; `M-x package-install [ret] company`
   (company-mode +1))
 
+(defun tide-copy-quickinfo ()
+  (interactive)
+  (kill-new (getf (getf (tide-send-command-sync "quickinfo"
+                                                `(:file ,(tide-buffer-file-name) :line ,(tide-line-number-at-pos) :offset ,(tide-current-offset)))
+                        :body)
+                  :displayString)
+            ))
+
 (defun tsserver-node-modules ()
   (let* ((root (locate-dominating-file
                 (or (buffer-file-name) default-directory)
