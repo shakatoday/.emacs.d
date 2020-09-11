@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Input local state
+# key: Input
+# --
+<Input
+  value={${1:valueName}}
+  placeholder='${2:placeholderText}'
+  onChangeText={nextValue => set${1:$(let ((state-name (or (yas-text) "valueName"))) (concat (capitalize (substring state-name 0 1)) (substring state-name 1)))}(nextValue)}
+ />
+
+const [$1, set${1:$(let ((state-name (or (yas-text) "valueName"))) (concat (capitalize (substring state-name 0 1)) (substring state-name 1)))}] = React.useState('');
