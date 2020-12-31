@@ -12,7 +12,7 @@
  '(js-indent-level 2)
  '(js-switch-indent-offset 2)
  '(package-selected-packages
-   '(string-inflection sql-indent sqlup-mode sqlformat graphql-mode tide ac-racer ac-slime auto-complete web-mode yaml-mode elpy feature-mode racer cargo rust-mode exec-path-from-shell markdown-mode blackboard-theme magit js2-mode))
+   '(lua-mode csv-mode string-inflection sql-indent sqlup-mode sqlformat graphql-mode tide ac-racer ac-slime auto-complete web-mode yaml-mode elpy feature-mode racer cargo rust-mode exec-path-from-shell markdown-mode blackboard-theme magit js2-mode))
  '(rust-format-on-save t)
  '(tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t))
  '(web-mode-code-indent-offset 2)
