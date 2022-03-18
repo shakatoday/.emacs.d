@@ -11,12 +11,13 @@
 
 ;; setup roswell
 ;; by defvar, this setting won't be overwritten in ~/.roswell/helper.el
-(defvar roswell-slime-contribs '(slime-fancy
-                                 slime-indentation))
+;; (defvar roswell-slime-contribs '(slime-fancy
+;;                                  slime-indentation))
 
-(setq slime-contribs roswell-slime-contribs)
-(load (expand-file-name "~/.roswell/helper.el"))
+(setq slime-contribs '(slime-fancy
+                       slime-indentation))
+;; (load (expand-file-name "~/.roswell/helper.el"))
 
-;; use local clhs
-;; use quicklisp to install system clhs and do necessary setup for the first time usage
-(load (expand-file-name "~/.roswell/lisp/quicklisp/clhs-use-local.el") t)
+(load (expand-file-name "~/quicklisp/clhs-use-local.el") t)
+
+(setq inferior-lisp-program "/opt/local/bin/sbcl --dynamic-space-size 4096")
