@@ -23,7 +23,7 @@
 	  (load (expand-file-name (format "~/.emacs.d/rc/%s.el"
 					  init-filename))))
 	'("rc-theme"
-	  "rc-tramp"
+          "rc-tramp"
 	  "rc-auto-complete"
           "rc-sql"
           "rc-js"
