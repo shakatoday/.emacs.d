@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# contributer: shakatoday <scchen@shaka.today>
+# name: defpackage
+# key: defpackage
+# --
+(in-package :cl-user)
+(defpackage ${1:package}
+  (:use :cl))
+(in-package :$1)

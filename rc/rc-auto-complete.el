@@ -21,9 +21,10 @@
                 '(ac-source-features ac-source-functions ac-source-variables ac-source-symbols ac-source-yasnippet))))
 
 (add-hook 'shell-mode-hook 'auto-complete-mode)
-(add-hook 'sql-mode-hook 'auto-complete-mode)
 (add-hook 'slime-mode-hook 'add-slime-ac-sources)
+(add-hook 'slime-mode-hook 'add-yasnippet-ac-sources)
 (add-hook 'slime-repl-mode-hook 'add-slime-ac-sources)
+(add-hook 'sql-mode-hook 'auto-complete-mode)
 (add-hook 'sql-mode-hook 'add-yasnippet-ac-sources)
 (add-hook 'emacs-lisp-mode 'add-emacs-lisp-ac-sources)
 
