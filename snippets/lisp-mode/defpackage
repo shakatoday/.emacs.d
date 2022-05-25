@@ -3,7 +3,7 @@
 # name: defpackage
 # key: defpackage
 # --
-(in-package :cl-user)
+in-package :cl-user)
 (defpackage ${1:package}
   (:use :cl))
 (in-package :$1)
