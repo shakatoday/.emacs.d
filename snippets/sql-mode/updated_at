@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: updated_at
+# key: updated
+# --
+updated_at TIMESTAMPTZ NOT NULL DEFAULT now()

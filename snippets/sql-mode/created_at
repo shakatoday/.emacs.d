@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: created_at
+# key: created
+# --
+created_at TIMESTAMPTZ NOT NULL DEFAULT now()
