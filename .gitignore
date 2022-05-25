@@ -5,3 +5,5 @@ tramp
 auto-save-list/
 request/
 backup/
+transient/
+eln-cache/
