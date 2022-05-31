@@ -1,3 +1,7 @@
+;; dvorak keyboard
+(global-set-key (kbd "C-x C-h") help-map)
+(global-set-key (kbd "C-h") 'previous-line)
+
 (global-set-key (kbd "C-c i") 'string-inflection-toggle)
 (set-face-attribute 'default nil :height 180 :font "monofur")
 (put 'downcase-region 'disabled nil)
