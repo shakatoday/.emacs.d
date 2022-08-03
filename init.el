@@ -14,7 +14,8 @@
  '(package-selected-packages
    '(slime ac-slime lua-mode csv-mode string-inflection sql-indent sqlup-mode sqlformat graphql-mode tide ac-racer auto-complete web-mode yaml-mode elpy racer cargo rust-mode exec-path-from-shell markdown-mode blackboard-theme magit js2-mode))
  '(rust-format-on-save t)
- '(tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t))
+ '(tide-format-options
+   '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t insertSpaceAfterKeywordsInControlFlowStatements nil))
  '(web-mode-code-indent-offset 2)
  '(web-mode-css-indent-offset 2)
  '(web-mode-markup-indent-offset 2))
