@@ -7,11 +7,6 @@
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
 
-  (setq company-transformers '(company-sort-by-backend-importance))
-  (set (make-local-variable 'company-backends)
-       '((company-tide company-files :with company-yasnippet :with company-dabbrev-code)
-         (company-dabbrev-code company-dabbrev)))
-
   ;; company is an optional dependency. You have to
   ;; install it separately via package-install
   ;; `M-x package-install [ret] company`
@@ -24,17 +19,6 @@
                         :body)
                   :displayString)
             ))
-
-(defun tsserver-node-modules ()
-  (let* ((root (locate-dominating-file
-                (or (buffer-file-name) default-directory)
-                "node_modules"))
-         (tsserver
-          (and root
-               (expand-file-name "node_modules/.bin/tsserver"
-                                 root))))
-    (when (and tsserver (file-executable-p tsserver))
-      (setq-default tide-tsserver-executable tsserver))))
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
