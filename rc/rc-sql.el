@@ -12,4 +12,3 @@
                               (sql-set-product "postgres")
                               (sql-set-sqli-buffer))))
 (add-hook 'sql-interactive-mode-hook 'sqlup-mode)
-(add-hook 'sql-interactive-mode-hook 'auto-complete-mode)
