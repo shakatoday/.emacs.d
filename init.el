@@ -31,7 +31,6 @@
           "rc-ts"
           "rc-web"
           "rc-tsx"
-          "rc-graphql"
           "rc-common-lisp"
           "rc-rust"
           "rc-python"
