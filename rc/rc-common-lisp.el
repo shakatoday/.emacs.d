@@ -2,7 +2,8 @@
 ;; setup roswell
 ;; by defvar, this setting won't be overwritten in ~/.roswell/helper.el
 (defvar roswell-slime-contribs '(slime-fancy
-                                 slime-indentation))
+                                 slime-indentation
+                                 slime-company))
 
 ;; (setq slime-contribs '(slime-fancy
 ;;                        slime-indentation))
