@@ -1,8 +1,3 @@
-(setq sqlformat-command 'pgformatter)
-(setq sqlformat-args '("-s2" "-g" "-U0"))
-(add-hook 'sql-mode-hook 'sqlformat-on-save-mode)
-(add-hook 'sql-mode-hook 'sqlind-minor-mode)
-(add-hook 'sql-mode-hook 'sqlup-mode)
 (add-hook 'sql-mode-hook  (lambda ()
                             (let ((buf (current-buffer))
                                   (window-to-comeback (selected-window)))
@@ -11,4 +6,3 @@
                               (switch-to-buffer buf)
                               (sql-set-product "postgres")
                               (sql-set-sqli-buffer))))
-(add-hook 'sql-interactive-mode-hook 'sqlup-mode)

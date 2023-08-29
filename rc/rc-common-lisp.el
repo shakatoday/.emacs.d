@@ -5,13 +5,8 @@
                                  slime-indentation
                                  slime-company))
 
-;; (setq slime-contribs '(slime-fancy
-;;                        slime-indentation))
 (load (expand-file-name "~/.roswell/helper.el"))
-
 (load (expand-file-name "~/quicklisp/clhs-use-local.el") t)
-
-;; (setq inferior-lisp-program "/opt/local/bin/sbcl --dynamic-space-size 4096")
 
 (defun slime-qlot-exec (directory)
   (interactive (list (read-directory-name "Project directory: ")))
