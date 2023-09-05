@@ -1,5 +1,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+;; (setf (alist-get "melpa" package-archives nil nil 'string=)
+;;       "https://www.mirrorservice.org/sites/melpa.org/packages/") ;; use when necessary
 (package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
