@@ -9,7 +9,7 @@
  '(font-lock-global-modes '(not speedbar-mode))
  '(indent-tabs-mode nil)
  '(package-selected-packages
-   '(slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme)))
+   '(markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme)))
 
 (defun load-rc-file (rc-filename)
   (load (expand-file-name (format "~/.emacs.d/rc/%s.el"
@@ -56,6 +56,12 @@
 (use-package sql-indent :hook (sql-mode . sqlind-minor-mode))
 (use-package sqlup-mode :hook ((sql-mode sql-interactive-mode) . sqlup-mode))
 (load-rc-file "rc-sql")
+
+(use-package markdown-mode
+  :bind (:map markdown-mode-map
+         ("C-c C-e" . markdown-do))
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
 
 (setq make-backup-files nil)
 (setq auto-save-default nil)
