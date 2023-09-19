@@ -65,6 +65,8 @@
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown"))
 
+(add-hook 'text-mode-hook 'flyspell-mode)
+
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq column-number-mode t)
