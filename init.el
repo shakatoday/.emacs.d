@@ -65,7 +65,18 @@
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown"))
 
+(use-package eglot
+  :ensure t
+  :hook ((tsx-ts-mode typescript-ts-mode) . eglot-ensure))
+
 (add-hook 'text-mode-hook 'flyspell-mode)
+
+;; tree-sitter
+(setq treesit-extra-load-path '("/opt/local/lib/"))
+(setq auto-mode-alist
+      (append '(("\\.js\\'" . tsx-ts-mode)
+                ("\\.jsx\\'" . tsx-ts-mode))
+              auto-mode-alist))
 
 (setq make-backup-files nil)
 (setq auto-save-default nil)
