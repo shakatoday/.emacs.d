@@ -8,6 +8,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(css-indent-offset 2)
  '(font-lock-global-modes '(not speedbar-mode))
  '(indent-tabs-mode nil)
  '(package-selected-packages
@@ -67,7 +68,7 @@
 
 (use-package eglot
   :ensure t
-  :hook ((tsx-ts-mode typescript-ts-mode) . eglot-ensure))
+  :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode) . eglot-ensure))
 
 (add-hook 'text-mode-hook 'flyspell-mode)
 
@@ -75,7 +76,8 @@
 (setq treesit-extra-load-path '("/opt/local/lib/"))
 (setq auto-mode-alist
       (append '(("\\.js\\'" . tsx-ts-mode)
-                ("\\.jsx\\'" . tsx-ts-mode))
+                ("\\.jsx\\'" . tsx-ts-mode)
+                ("\\.css\\'" . css-ts-mode))
               auto-mode-alist))
 
 (setq make-backup-files nil)
