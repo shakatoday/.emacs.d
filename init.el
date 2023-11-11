@@ -81,6 +81,8 @@
 (setq auto-mode-alist
       (append '(("\\.js\\'" . tsx-ts-mode)
                 ("\\.jsx\\'" . tsx-ts-mode)
+                ("\\.ts\\'" . typescript-ts-mode)
+                ("\\.tsx\\'" . tsx-ts-mode)
                 ("\\.css\\'" . css-ts-mode))
               auto-mode-alist))
 
