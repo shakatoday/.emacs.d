@@ -11,6 +11,7 @@
  '(css-indent-offset 2)
  '(font-lock-global-modes '(not speedbar-mode))
  '(indent-tabs-mode nil)
+ '(treesit-font-lock-level 4)
  '(package-selected-packages
    '(markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme)))
 
