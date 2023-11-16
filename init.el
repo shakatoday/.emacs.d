@@ -11,9 +11,9 @@
  '(css-indent-offset 2)
  '(font-lock-global-modes '(not speedbar-mode))
  '(indent-tabs-mode nil)
- '(treesit-font-lock-level 4)
  '(package-selected-packages
-   '(markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme)))
+   '(format-all markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme))
+ '(treesit-font-lock-level 4))
 
 (defun load-rc-file (rc-filename)
   (load (expand-file-name (format "~/.emacs.d/rc/%s.el"
@@ -74,6 +74,11 @@
   ;;
   ;; Performance tweak. See https://www.gnu.org/software//emacs/manual/html_node/eglot/Performance.html
   (setq eglot-events-buffer-size 0))
+
+(use-package format-all
+  :hook
+  ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode) . format-all-ensure-formatter)
+  ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode) . format-all-mode))
 
 (add-hook 'text-mode-hook 'flyspell-mode)
 
