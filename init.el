@@ -84,6 +84,7 @@
                 ("\\.jsx\\'" . tsx-ts-mode)
                 ("\\.ts\\'" . typescript-ts-mode)
                 ("\\.tsx\\'" . tsx-ts-mode)
+                ("\\.json\\'" . json-ts-mode)
                 ("\\.css\\'" . css-ts-mode))
               auto-mode-alist))
 
