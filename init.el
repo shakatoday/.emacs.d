@@ -12,7 +12,7 @@
  '(font-lock-global-modes '(not speedbar-mode))
  '(indent-tabs-mode nil)
  '(package-selected-packages
-   '(format-all markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme))
+   '(tabnine sqlup-mode exec-path-from-shell string-inflection magit format-all markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme))
  '(treesit-font-lock-level 4))
 
 (defun load-rc-file (rc-filename)
@@ -36,14 +36,29 @@
 (use-package magit)
 
 (use-package company
-  :bind (("C-c C-/" . company-other-backend))
   :hook (after-init . global-company-mode)
   :config (load-rc-file "rc-company"))
 
-(use-package company-tabnine
+(use-package tabnine
+  :commands (tabnine-start-process)
+  :hook ((text-mode prog-mode) . tabnine-mode)
+  :diminish "⌬"
+  :custom
+  (tabnine-wait 1)
+  (tabnine-minimum-prefix-length 0)
+  :hook (kill-emacs . tabnine-kill-process)
   :config
-  (add-to-list 'company-backends 'company-tabnine)
-  (require 'company-tabnine))
+  (add-to-list 'completion-at-point-functions #'tabnine-completion-at-point)
+  (tabnine-start-process)
+  :bind
+  (:map tabnine-completion-map
+	("<tab>" . tabnine-accept-completion)
+	("TAB" . tabnine-accept-completion)
+	("M-f" . tabnine-accept-completion-by-word)
+	("M-<return>" . tabnine-accept-completion-by-line)
+	("C-g" . tabnine-clear-overlay)
+	("M-p" . tabnine-previous-completion)
+	("M-n" . tabnine-next-completion)))
 
 (use-package company-quickhelp :hook (company-mode . company-quickhelp-mode))
 
