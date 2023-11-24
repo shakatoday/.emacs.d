@@ -26,6 +26,13 @@
 
 (use-package blackboard-theme :config (load-theme 'blackboard t))
 
+(defun insert-space-before-point (&optional n)
+  (interactive "p")
+  (save-excursion
+    (insert-char ?\  n)))
+
+(global-set-key (kbd "M-SPC") 'insert-space-before-point)
+
 (use-package magit)
 
 (use-package company
