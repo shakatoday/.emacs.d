@@ -40,25 +40,21 @@
   :config (load-rc-file "rc-company"))
 
 (use-package tabnine
-  :commands (tabnine-start-process)
   :hook ((text-mode prog-mode) . tabnine-mode)
+  ;;
+  ;; don't know why :bind (:map tabnine-completion-map) doesn't work.
+  ;; Here's a temporary workaround
+  :hook (tabnine-mode . (lambda ()
+                          (keymap-set tabnine-completion-map "C-<tab>" 'tabnine-accept-completion)
+                          (keymap-unset tabnine-completion-map "<tab>" t)
+                          (keymap-unset tabnine-completion-map "C-i" t)))
   :diminish "⌬"
   :custom
   (tabnine-wait 1)
   (tabnine-minimum-prefix-length 0)
   :hook (kill-emacs . tabnine-kill-process)
   :config
-  (add-to-list 'completion-at-point-functions #'tabnine-completion-at-point)
-  (tabnine-start-process)
-  :bind
-  (:map tabnine-completion-map
-	("<tab>" . tabnine-accept-completion)
-	("TAB" . tabnine-accept-completion)
-	("M-f" . tabnine-accept-completion-by-word)
-	("M-<return>" . tabnine-accept-completion-by-line)
-	("C-g" . tabnine-clear-overlay)
-	("M-p" . tabnine-previous-completion)
-	("M-n" . tabnine-next-completion)))
+  (tabnine-start-process))
 
 (use-package company-quickhelp :hook (company-mode . company-quickhelp-mode))
 
