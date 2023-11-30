@@ -12,7 +12,7 @@
  '(font-lock-global-modes '(not speedbar-mode))
  '(indent-tabs-mode nil)
  '(package-selected-packages
-   '(tabnine sqlup-mode exec-path-from-shell string-inflection magit format-all markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme))
+   '(company-restclient restclient tabnine sqlup-mode exec-path-from-shell string-inflection magit format-all markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme))
  '(treesit-font-lock-level 4))
 
 (defun load-rc-file (rc-filename)
@@ -35,12 +35,20 @@
 
 (use-package magit)
 
+(use-package restclient
+  :mode ("\\.http\\'" . restclient-mode)
+  :hook (restclient-mode . (lambda ()
+                             (setq-local company-backends
+                                         (append company-backends '(company-restclient)))))
+  :config
+  (use-package company-restclient))
+
 (use-package company
   :hook (after-init . global-company-mode)
   :config (load-rc-file "rc-company"))
 
 (use-package tabnine
-  :hook ((text-mode prog-mode) . tabnine-mode)
+  :hook ((text-mode prog-mode restclient-mode) . tabnine-mode)
   ;;
   ;; don't know why :bind (:map tabnine-completion-map) doesn't work.
   ;; Here's a temporary workaround
