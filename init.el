@@ -67,7 +67,9 @@
 (when (memq window-system '(mac ns x))
   (use-package exec-path-from-shell :config (exec-path-from-shell-initialize))
   (use-package vterm)
-  (use-package multi-vterm)
+  (use-package multi-vterm
+    ;; use multi-vterm for inferior shell process
+    :config (load-rc-file "rc-multi-vterm"))
   (set-face-attribute 'default nil :height 180 :font "monofur"))
 
 (use-package sqlformat
