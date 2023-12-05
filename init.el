@@ -12,7 +12,7 @@
  '(font-lock-global-modes '(not speedbar-mode))
  '(indent-tabs-mode nil)
  '(package-selected-packages
-   '(tabnine sqlup-mode exec-path-from-shell string-inflection magit format-all markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme))
+   '(rust-mode tabnine sqlup-mode exec-path-from-shell string-inflection magit format-all markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme))
  '(treesit-font-lock-level 4))
 
 (defun load-rc-file (rc-filename)
@@ -87,9 +87,13 @@
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown"))
 
+(use-package rust-mode
+  :hook (rust-mode . prettify-symbols-mode)
+  :config (setq rust-format-on-save t))
+
 (use-package eglot
   :ensure t
-  :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode) . eglot-ensure)
+  :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-mode) . eglot-ensure)
   :config
   ;;
   ;; Performance tweak. See https://www.gnu.org/software//emacs/manual/html_node/eglot/Performance.html
