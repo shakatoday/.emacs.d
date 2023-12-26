@@ -93,7 +93,7 @@
 
 (use-package eglot
   :ensure t
-  :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-mode) . eglot-ensure)
+  :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-mode python-mode) . eglot-ensure)
   :config
   ;;
   ;; Performance tweak. See https://www.gnu.org/software//emacs/manual/html_node/eglot/Performance.html
