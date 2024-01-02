@@ -45,9 +45,17 @@
   ;; don't know why :bind (:map tabnine-completion-map) doesn't work.
   ;; Here's a temporary workaround
   :hook (tabnine-mode . (lambda ()
-                          (keymap-set tabnine-completion-map "C-<tab>" 'tabnine-accept-completion)
-                          (keymap-unset tabnine-completion-map "<tab>" t)
-                          (keymap-unset tabnine-completion-map "C-i" t)))
+                          (let ((keymap (make-sparse-keymap))
+                                (keymap-higher (make-sparse-keymap)))
+                            (define-key keymap (kbd "TAB") #'tabnine-accept-completion)
+                            (define-key keymap (kbd "<tab>") #'tabnine-accept-completion)
+                            (define-key keymap (kbd "C-g")  #'tabnine-clear-overlay)
+                            (define-key keymap (kbd "M-f")  #'tabnine-accept-completion-by-word)
+                            (define-key keymap (kbd "M-<return>")  #'tabnine-accept-completion-by-line)
+                            (define-key keymap (kbd "M-[")  #'tabnine-previous-completion)
+                            (define-key keymap (kbd "M-]")  #'tabnine-next-completion)
+                            (define-key keymap-higher (kbd "C-<tab>") keymap)
+                            (setq tabnine-completion-map keymap-higher))))
   :diminish "⌬"
   :custom
   (tabnine-wait 1)
