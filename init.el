@@ -12,7 +12,7 @@
  '(font-lock-global-modes '(not speedbar-mode))
  '(indent-tabs-mode nil)
  '(package-selected-packages
-   '(rust-mode tabnine sqlup-mode exec-path-from-shell string-inflection magit format-all markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme))
+   '(treesit-auto tabnine sqlup-mode exec-path-from-shell string-inflection magit format-all markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme))
  '(treesit-font-lock-level 4))
 
 (defun load-rc-file (rc-filename)
@@ -87,13 +87,9 @@
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown"))
 
-(use-package rust-mode
-  :hook (rust-mode . prettify-symbols-mode)
-  :config (setq rust-format-on-save t))
-
 (use-package eglot
   :ensure t
-  :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-mode python-mode) . eglot-ensure)
+  :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode python-mode) . eglot-ensure)
   :config
   ;;
   ;; Performance tweak. See https://www.gnu.org/software//emacs/manual/html_node/eglot/Performance.html
@@ -101,21 +97,17 @@
 
 (use-package format-all
   :hook
-  ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode) . format-all-ensure-formatter)
-  ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode) . format-all-mode))
+  ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode) . format-all-ensure-formatter)
+  ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode) . format-all-mode))
+
+(use-package treesit-auto
+  :custom
+  (treesit-auto-install 'prompt)
+  :config
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
 
 (add-hook 'text-mode-hook 'flyspell-mode)
-
-;; tree-sitter
-(setq treesit-extra-load-path '("/opt/local/lib/"))
-(setq auto-mode-alist
-      (append '(("\\.js\\'" . tsx-ts-mode)
-                ("\\.jsx\\'" . tsx-ts-mode)
-                ("\\.ts\\'" . typescript-ts-mode)
-                ("\\.tsx\\'" . tsx-ts-mode)
-                ("\\.json\\'" . json-ts-mode)
-                ("\\.css\\'" . css-ts-mode))
-              auto-mode-alist))
 
 (setq make-backup-files nil)
 (setq auto-save-default nil)
