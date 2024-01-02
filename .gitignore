@@ -9,3 +9,4 @@ transient/
 eln-cache/
 .last-package-update-day
 projects
+tree-sitter
