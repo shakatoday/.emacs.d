@@ -97,7 +97,7 @@
 
 (use-package eglot
   :ensure t
-  :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode python-mode) . eglot-ensure)
+  :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode python-mode latex-mode) . eglot-ensure)
   :config
   ;;
   ;; Performance tweak. See https://www.gnu.org/software//emacs/manual/html_node/eglot/Performance.html
@@ -114,6 +114,9 @@
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
+
+;; add file extension to auto list
+(add-to-list 'auto-mode-alist '("\\.tex\\'". latex-mode))
 
 (add-hook 'text-mode-hook 'flyspell-mode)
 
