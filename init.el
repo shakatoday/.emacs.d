@@ -34,10 +34,10 @@
 
 (use-package tabnine
   :hook ((text-mode prog-mode) . tabnine-mode)
-  ;;
-  ;; don't know why :bind (:map tabnine-completion-map) doesn't work.
-  ;; Here's a temporary workaround
   :hook (tabnine-mode . (lambda ()
+                          ;;
+                          ;; don't know why :bind (:map tabnine-completion-map) doesn't work.
+                          ;; Here's a temporary workaround
                           (let ((keymap (make-sparse-keymap))
                                 (keymap-higher (make-sparse-keymap)))
                             (define-key keymap (kbd "TAB") #'tabnine-accept-completion)
@@ -48,7 +48,25 @@
                             (define-key keymap (kbd "M-[")  #'tabnine-previous-completion)
                             (define-key keymap (kbd "M-]")  #'tabnine-next-completion)
                             (define-key keymap-higher (kbd "C-<tab>") keymap)
-                            (setq tabnine-completion-map keymap-higher))))
+                            (setq tabnine-completion-map keymap-higher))
+
+                          ;;
+                          ;; python-ts-mode bug workaround
+                          ;; Error message: running timer ‘tabnine--post-command-debounce’: (wrong-type-argument sequencep editorconfig-set-indentation-python-mode)
+                          (defun tabnine-util--infer-indentation-offset ()
+                            "Infer indentation offset."
+                            (or (let ((mode major-mode))
+                                  (while (and (not (assq mode tabnine-util--indentation-alist))
+                                              (setq mode (get mode 'derived-mode-parent))))
+                                  (when mode
+                                    (cl-some (lambda (s)
+                                               (when (boundp s)
+		                                 (symbol-value s)))
+                                             (alist-get (if (eq mode 'python-ts-mode)
+                                                            'python-mode
+                                                          mode)
+                                                        tabnine-util--indentation-alist))))
+                                tab-width))))
   :diminish "⌬"
   :custom
   (tabnine-wait 1)
