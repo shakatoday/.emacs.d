@@ -44,7 +44,7 @@
                             (define-key keymap (kbd "<tab>") #'tabnine-accept-completion)
                             (define-key keymap (kbd "C-g")  #'tabnine-clear-overlay)
                             (define-key keymap (kbd "M-f")  #'tabnine-accept-completion-by-word)
-                            (define-key keymap (kbd "M-<return>")  #'tabnine-accept-completion-by-line)
+                            (define-key keymap (kbd "C-e")  #'tabnine-accept-completion-by-line)
                             (define-key keymap (kbd "M-[")  #'tabnine-previous-completion)
                             (define-key keymap (kbd "M-]")  #'tabnine-next-completion)
                             (define-key keymap-higher (kbd "C-<tab>") keymap)
