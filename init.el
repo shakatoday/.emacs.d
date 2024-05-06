@@ -1,8 +1,3 @@
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-;; (setf (alist-get "melpa" package-archives nil nil 'string=)
-;;       "https://www.mirrorservice.org/sites/melpa.org/packages/") ;; use when necessary
-(package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -15,14 +10,31 @@
    '(treesit-auto tabnine sqlup-mode exec-path-from-shell string-inflection magit format-all markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme))
  '(treesit-font-lock-level 4))
 
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+
+(setq straight-use-package-by-default t)
+
 (defun load-rc-file (rc-filename)
   (load (expand-file-name (format "~/.emacs.d/rc/%s.el"
 				  rc-filename))))
 
 (setq tramp-default-method "ssh")
-
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
 
 (use-package blackboard-theme :config (load-theme 'blackboard t))
 
@@ -89,7 +101,6 @@
   :init (setq markdown-command "multimarkdown"))
 
 (use-package eglot
-  :ensure t
   :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode python-ts-mode latex-mode c-ts-mode c++-ts-mode) . eglot-ensure)
   :config
   ;;

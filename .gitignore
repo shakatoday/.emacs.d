@@ -10,3 +10,6 @@ eln-cache/
 .last-package-update-day
 projects
 tree-sitter
+straight/build
+straight/build-cache.el
+straight/repos
