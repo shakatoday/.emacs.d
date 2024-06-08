@@ -46,27 +46,23 @@
 
 (use-package tabnine
   :hook ((text-mode prog-mode) . tabnine-mode)
-  :hook (tabnine-mode . (lambda ()
-                          ;;
-                          ;; don't know why :bind (:map tabnine-completion-map) doesn't work.
-                          ;; Here's a temporary workaround
-                          (let ((keymap (make-sparse-keymap))
-                                (keymap-higher (make-sparse-keymap)))
-                            (define-key keymap (kbd "TAB") #'tabnine-accept-completion)
-                            (define-key keymap (kbd "<tab>") #'tabnine-accept-completion)
-                            (define-key keymap (kbd "C-g")  #'tabnine-clear-overlay)
-                            (define-key keymap (kbd "M-f")  #'tabnine-accept-completion-by-word)
-                            (define-key keymap (kbd "C-e")  #'tabnine-accept-completion-by-line)
-                            (define-key keymap (kbd "M-[")  #'tabnine-previous-completion)
-                            (define-key keymap (kbd "M-]")  #'tabnine-next-completion)
-                            (define-key keymap-higher (kbd "C-<tab>") keymap)
-                            (setq tabnine-completion-map keymap-higher))))
   :diminish "⌬"
   :custom
   (tabnine-wait 1)
   (tabnine-minimum-prefix-length 0)
   :hook (kill-emacs . tabnine-kill-process)
   :config
+  (lambda ()
+    (let ((keymap (make-sparse-keymap)))
+      (define-key keymap (kbd "TAB") #'tabnine-accept-completion)
+      (define-key keymap (kbd "<tab>") #'tabnine-accept-completion)
+      (define-key keymap (kbd "C-g")  #'tabnine-clear-overlay)
+      (define-key keymap (kbd "M-f")  #'tabnine-accept-completion-by-word)
+      (define-key keymap (kbd "C-e")  #'tabnine-accept-completion-by-line)
+      (define-key keymap (kbd "M-[")  #'tabnine-previous-completion)
+      (define-key keymap (kbd "M-]")  #'tabnine-next-completion)
+      (keymap-global-set (kbd "C-<tab>") keymap)
+      (setq tabnine-completion-map nil)))
   (tabnine-start-process))
 
 (use-package company-quickhelp :hook (company-mode . company-quickhelp-mode))
