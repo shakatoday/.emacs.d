@@ -13,3 +13,4 @@ tree-sitter
 straight/build
 straight/build-cache.el
 straight/repos
+straight/modified
