@@ -44,29 +44,6 @@
   :hook (after-init . global-company-mode)
   :config (load-rc-file "rc-company"))
 
-(let ((keymap (make-sparse-keymap)))
-  (define-key keymap (kbd "TAB") 'tabnine-accept-completion)
-  (define-key keymap (kbd "<tab>") 'tabnine-accept-completion)
-  (define-key keymap (kbd "C-g")  'tabnine-clear-overlay)
-  (define-key keymap (kbd "M-f")  'tabnine-accept-completion-by-word)
-  (define-key keymap (kbd "C-e")  'tabnine-accept-completion-by-line)
-  (define-key keymap (kbd "M-[")  'tabnine-previous-completion)
-  (define-key keymap (kbd "M-]")  'tabnine-next-completion)
-  (keymap-global-set "C-<tab>" keymap))
-
-(use-package tabnine
-  :hook ((text-mode prog-mode) . tabnine-mode)
-  :hook (tabnine-mode . (lambda ()
-                          (setq tabnine-completion-map
-                                (assoc 'C-tab (cdr (current-global-map))))))
-  :diminish "⌬"
-  :custom
-  (tabnine-wait 1)
-  (tabnine-minimum-prefix-length 0)
-  :hook (kill-emacs . tabnine-kill-process)
-  :config
-  (tabnine-start-process))
-
 (use-package company-quickhelp :hook (company-mode . company-quickhelp-mode))
 
 ;; (use-package slime-company)
