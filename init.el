@@ -69,8 +69,8 @@
 
 (use-package company-quickhelp :hook (company-mode . company-quickhelp-mode))
 
-(use-package slime-company)
-(load-rc-file "rc-common-lisp")
+;; (use-package slime-company)
+;; (load-rc-file "rc-common-lisp")
 
 (use-package string-inflection
   :bind (("C-c i". string-inflection-all-cycle)))
