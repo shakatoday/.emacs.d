@@ -7,7 +7,7 @@
  '(font-lock-global-modes '(not speedbar-mode))
  '(indent-tabs-mode nil)
  '(package-selected-packages
-   '(treesit-auto tabnine sqlup-mode exec-path-from-shell string-inflection magit format-all markdown-mode slime-company company-quickhelp company-tabnine multi-vterm vterm sql-indent sqlformat blackboard-theme))
+   '(treesit-auto sqlup-mode exec-path-from-shell string-inflection magit format-all markdown-mode slime-company company-quickhelp multi-vterm vterm sql-indent sqlformat blackboard-theme))
  '(treesit-font-lock-level 4))
 
 (defvar bootstrap-version)
