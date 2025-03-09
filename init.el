@@ -76,7 +76,7 @@
   :init (setq markdown-command "multimarkdown"))
 
 (use-package eglot
-  :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode python-ts-mode latex-mode c-ts-mode c++-ts-mode) . eglot-ensure)
+  :hook ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode python-ts-mode latex-mode c-ts-mode c++-ts-mode yaml-ts-mode) . eglot-ensure)
   :config
   ;;
   ;; Performance tweak. See https://www.gnu.org/software//emacs/manual/html_node/eglot/Performance.html
@@ -84,8 +84,8 @@
 
 (use-package format-all
   :hook
-  ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode python-ts-mode c-ts-mode c++-ts-mode) . format-all-ensure-formatter)
-  ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode python-ts-mode c-ts-mode c++-ts-mode) . format-all-mode))
+  ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode python-ts-mode c-ts-mode c++-ts-mode yaml-ts-mode) . format-all-ensure-formatter)
+  ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode python-ts-mode c-ts-mode c++-ts-mode yaml-ts-mode) . format-all-mode))
 
 (use-package treesit-auto
   :custom
