@@ -82,6 +82,13 @@
   ;; Performance tweak. See https://www.gnu.org/software//emacs/manual/html_node/eglot/Performance.html
   (setq eglot-events-buffer-size 0))
 
+(use-package eldoc-box
+  :config
+  (setq eldoc-box-max-pixel-height 400)
+  (setq eldoc-box-only-multi-line t))
+
+(add-hook 'eglot-managed-mode-hook 'eldoc-box-hover-mode t)
+
 (use-package format-all
   :hook
   ((tsx-ts-mode typescript-ts-mode html-mode css-ts-mode scss-mode json-ts-mode rust-ts-mode python-ts-mode c-ts-mode c++-ts-mode yaml-ts-mode) . format-all-ensure-formatter)
