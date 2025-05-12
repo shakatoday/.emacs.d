@@ -74,7 +74,7 @@
 
 (use-package markdown-mode
   :bind (:map markdown-mode-map
-         ("C-c C-e" . markdown-do))
+              ("C-c C-e" . markdown-do))
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown"))
 
