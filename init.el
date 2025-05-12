@@ -46,8 +46,11 @@
 
 (use-package company-quickhelp :hook (company-mode . company-quickhelp-mode))
 
-;; (use-package slime-company)
-;; (load-rc-file "rc-common-lisp")
+(use-package sly
+  :config
+  (setq sly-lisp-implementations
+      '((sbcl ("sbcl") :coding-system utf-8-unix)
+        (qlot ("qlot" "exec" "sbcl") :coding-system utf-8-unix))))
 
 (use-package string-inflection
   :bind (("C-c i". string-inflection-all-cycle)))
