@@ -44,7 +44,7 @@
   :hook (after-init . global-company-mode)
   :config (load-rc-file "rc-company"))
 
-(use-package company-quickhelp :hook (company-mode . company-quickhelp-mode))
+;; (use-package company-quickhelp :hook (company-mode . company-quickhelp-mode))
 
 (use-package sly
   :config
