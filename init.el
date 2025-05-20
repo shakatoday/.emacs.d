@@ -46,11 +46,15 @@
 
 ;; (use-package company-quickhelp :hook (company-mode . company-quickhelp-mode))
 
-(use-package sly
+(use-package gptel
   :config
-  (setq sly-lisp-implementations
-      '((sbcl ("sbcl") :coding-system utf-8-unix)
-        (qlot ("qlot" "exec" "sbcl") :coding-system utf-8-unix))))
+  (setq
+   gptel-model 'qwen2.5:14b
+   gptel-backend (gptel-make-ollama "Ollama"
+                   :host "localhost:11434"
+                   :stream t
+                   :models '(qwen2.5:14b)))
+  :bind (("C-<tab>" . gptel-menu)))
 
 (use-package string-inflection
   :bind (("C-c i". string-inflection-all-cycle)))
@@ -103,6 +107,14 @@
   :config
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
+
+(use-package sly
+  :config
+  (setq sly-complete-symbol-function 'sly-simple-completions)
+  (setq sly-lisp-implementations
+        '((sbcl ("sbcl") :coding-system utf-8-unix)
+          (qlot ("qlot" "exec" "sbcl") :coding-system utf-8-unix))))
+
 
 ;; add file extension to auto list
 (add-to-list 'auto-mode-alist '("\\.tex\\'". latex-mode))
